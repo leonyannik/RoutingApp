@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Enter Location View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RoutingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="EnterLocationViewController" customModule="RoutingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +24,36 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXP-Mg-CQI">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
                                         <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-OH-C7w">
+                                                <rect key="frame" x="20" y="104" width="264" height="150"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iau-xG-WzX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="264" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="El6-bT-ub6">
+                                                        <rect key="frame" x="0.0" y="40" width="264" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9a-k8-Xg3">
+                                                        <rect key="frame" x="0.0" y="80" width="264" height="30"/>
+                                                        <state key="normal" title="↑↓"/>
+                                                        <connections>
+                                                            <action selector="switchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w1w-Yn-ltg"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ws4-US-AlP">
+                                                        <rect key="frame" x="0.0" y="120" width="264" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frc-Tc-jR8">
                                                 <rect key="frame" x="304" y="104" width="50" height="30"/>
                                                 <constraints>
@@ -55,34 +85,10 @@
                                                     <constraint firstAttribute="height" constant="30" id="ey7-CH-d3S"/>
                                                 </constraints>
                                                 <state key="normal" title="Make the Route"/>
+                                                <connections>
+                                                    <action selector="makeTheRouteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kfl-d0-2ze"/>
+                                                </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hvO-OH-C7w">
-                                                <rect key="frame" x="20" y="104" width="264" height="150"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iau-xG-WzX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="264" height="30"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="El6-bT-ub6">
-                                                        <rect key="frame" x="0.0" y="40" width="264" height="30"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9a-k8-Xg3">
-                                                        <rect key="frame" x="0.0" y="80" width="264" height="30"/>
-                                                        <state key="normal" title="↑↓"/>
-                                                    </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ws4-US-AlP">
-                                                        <rect key="frame" x="0.0" y="120" width="264" height="30"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -129,6 +135,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="cGE-Uh-tBB"/>
                     <connections>
+                        <outlet property="destinationFieldOne" destination="El6-bT-ub6" id="zdv-QD-mNz"/>
+                        <outlet property="destinationFieldTwo" destination="Ws4-US-AlP" id="LxH-UI-1h0"/>
+                        <outlet property="makeTheRouteButton" destination="iAn-p3-PHz" id="rOo-Fh-SQn"/>
+                        <outlet property="scrollView" destination="QXP-Mg-CQI" id="Ggc-7x-jyk"/>
+                        <outlet property="sourceField" destination="iau-xG-WzX" id="byx-CX-iaG"/>
+                        <outlet property="switchButton" destination="J9a-k8-Xg3" id="Yj3-5B-vTE"/>
+                        <outlet property="titleLabel" destination="QXP-Mg-CQI" id="dvJ-dP-Gzz"/>
+                        <outletCollection property="enterButtonsGroup" destination="frc-Tc-jR8" collectionClass="NSMutableArray" id="D6a-l4-iwr"/>
+                        <outletCollection property="enterButtonsGroup" destination="rnb-Yy-drq" collectionClass="NSMutableArray" id="Ftj-gC-uQl"/>
+                        <outletCollection property="enterButtonsGroup" destination="4i5-8J-YD2" collectionClass="NSMutableArray" id="6aN-5a-mGR"/>
                         <segue destination="6kQ-7e-roE" kind="show" identifier="toShowDirectionsSegue" id="oUT-1r-3fN"/>
                     </connections>
                 </viewController>
@@ -136,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Display Directions View Controller-->
         <scene sceneID="PYw-O7-Bib">
             <objects>
-                <viewController id="6kQ-7e-roE" sceneMemberID="viewController">
+                <viewController id="6kQ-7e-roE" customClass="DisplayDirectionsViewController" customModule="RoutingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UlF-QI-xt4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +170,7 @@
                                 <rect key="frame" x="0.0" y="284" width="375" height="339"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="IH2-ja-blw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="IH2-ja-blw" customClass="DirectionTableViewCell" customModule="RoutingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IH2-ja-blw" id="nTB-3N-YMN">
@@ -165,7 +181,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total time:  --" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaL-fH-aBE">
-                                <rect key="frame" x="0.0" y="623" width="335" height="24"/>
+                                <rect key="frame" x="20" y="623" width="335" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="fDe-7h-Wao"/>
                                 </constraints>

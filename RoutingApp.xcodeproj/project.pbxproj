@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		B445049D2040AA01001BF695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B445049C2040AA01001BF695 /* AppDelegate.swift */; };
-		B445049F2040AA01001BF695 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B445049E2040AA01001BF695 /* ViewController.swift */; };
 		B44504A22040AA01001BF695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B44504A02040AA01001BF695 /* Main.storyboard */; };
 		B44504A42040AA01001BF695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B44504A32040AA01001BF695 /* Assets.xcassets */; };
 		B44504A72040AA01001BF695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B44504A52040AA01001BF695 /* LaunchScreen.storyboard */; };
+		B44504AF2040D486001BF695 /* DirectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44504AE2040D486001BF695 /* DirectionTableViewCell.swift */; };
+		B44504B22040D4C8001BF695 /* EnterLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44504B12040D4C8001BF695 /* EnterLocationViewController.swift */; };
+		B44504B52040D4F3001BF695 /* DisplayDirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44504B42040D4F3001BF695 /* DisplayDirectionsViewController.swift */; };
+		B44504B72040D521001BF695 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44504B62040D521001BF695 /* HideKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B44504992040AA01001BF695 /* RoutingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B445049C2040AA01001BF695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B445049E2040AA01001BF695 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B44504A12040AA01001BF695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B44504A32040AA01001BF695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B44504A62040AA01001BF695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B44504A82040AA01001BF695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B44504AE2040D486001BF695 /* DirectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionTableViewCell.swift; sourceTree = "<group>"; };
+		B44504B12040D4C8001BF695 /* EnterLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterLocationViewController.swift; sourceTree = "<group>"; };
+		B44504B42040D4F3001BF695 /* DisplayDirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDirectionsViewController.swift; sourceTree = "<group>"; };
+		B44504B62040D521001BF695 /* HideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +64,37 @@
 				B44504A52040AA01001BF695 /* LaunchScreen.storyboard */,
 				B44504A02040AA01001BF695 /* Main.storyboard */,
 				B445049C2040AA01001BF695 /* AppDelegate.swift */,
-				B445049E2040AA01001BF695 /* ViewController.swift */,
+				B44504B82040D525001BF695 /* AuxiliaryFunctions */,
+				B44504B32040D4CC001BF695 /* EnterLocation */,
+				B44504B02040D48C001BF695 /* DisplayDirections */,
 				B44504A32040AA01001BF695 /* Assets.xcassets */,
 			);
 			path = RoutingApp;
+			sourceTree = "<group>";
+		};
+		B44504B02040D48C001BF695 /* DisplayDirections */ = {
+			isa = PBXGroup;
+			children = (
+				B44504B42040D4F3001BF695 /* DisplayDirectionsViewController.swift */,
+				B44504AE2040D486001BF695 /* DirectionTableViewCell.swift */,
+			);
+			path = DisplayDirections;
+			sourceTree = "<group>";
+		};
+		B44504B32040D4CC001BF695 /* EnterLocation */ = {
+			isa = PBXGroup;
+			children = (
+				B44504B12040D4C8001BF695 /* EnterLocationViewController.swift */,
+			);
+			path = EnterLocation;
+			sourceTree = "<group>";
+		};
+		B44504B82040D525001BF695 /* AuxiliaryFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				B44504B62040D521001BF695 /* HideKeyboard.swift */,
+			);
+			path = AuxiliaryFunctions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +169,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B445049F2040AA01001BF695 /* ViewController.swift in Sources */,
+				B44504B72040D521001BF695 /* HideKeyboard.swift in Sources */,
 				B445049D2040AA01001BF695 /* AppDelegate.swift in Sources */,
+				B44504B52040D4F3001BF695 /* DisplayDirectionsViewController.swift in Sources */,
+				B44504B22040D4C8001BF695 /* EnterLocationViewController.swift in Sources */,
+				B44504AF2040D486001BF695 /* DirectionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
