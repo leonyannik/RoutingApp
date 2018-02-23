@@ -7,12 +7,13 @@
 //
 
 import UIKit
-
+import MapKit
+import CoreLocation
 
 class EnterLocationViewController: UIViewController {
     // MARK: - Outlets
-    @IBOutlet weak var scrollView: UIView!
-    @IBOutlet weak var titleLabel: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet var enterButtonsGroup: [UIButton]!
     @IBOutlet weak var makeTheRouteButton: UIButton!
     @IBOutlet weak var switchButton: UIButton!
@@ -29,7 +30,8 @@ class EnterLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         paintUserInterface()
-
+        hideKeyboardWhenTappedAround()
+        listenToKeyboardPop()
         // Do any additional setup after loading the view.
     }
 
@@ -59,4 +61,47 @@ class EnterLocationViewController: UIViewController {
         makeTheRouteButton.setTitleColor(.darkGray, for: .normal)
         
     }
+    
+    func listenToKeyboardPop() {
+        scrollView.contentInset = UIEdgeInsets.zero
+        scrollView.isScrollEnabled = false
+        NotificationCenter.default.addObserver(self, selector: #selector(self.adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        if notification.name == Notification.Name.UIKeyboardWillHide {
+            scrollView.contentInset = UIEdgeInsets.zero
+            scrollView.isScrollEnabled = false
+        } else {
+            scrollView.isScrollEnabled = true
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            scrollView.scrollRectToVisible(CGRect(x: 0, y: keyboardViewEndFrame.height, width: 1, height: keyboardViewEndFrame.height), animated: true)
+        }
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+    }
 }
+// MARK: -
+// MARK: Extesions
+// MARK: -
+ extension EnterLocationViewController: UITextFieldDelegate {
+    //MARK: UITextFieldDelegate
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+}
+
+extension EnterLocationViewController: CLLocationManagerDelegate {
+    //MARK: CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+}
+
