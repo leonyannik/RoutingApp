@@ -54,12 +54,12 @@
 		B445049B2040AA01001BF695 /* RoutingApp */ = {
 			isa = PBXGroup;
 			children = (
+				B44504A82040AA01001BF695 /* Info.plist */,
+				B44504A52040AA01001BF695 /* LaunchScreen.storyboard */,
+				B44504A02040AA01001BF695 /* Main.storyboard */,
 				B445049C2040AA01001BF695 /* AppDelegate.swift */,
 				B445049E2040AA01001BF695 /* ViewController.swift */,
-				B44504A02040AA01001BF695 /* Main.storyboard */,
 				B44504A32040AA01001BF695 /* Assets.xcassets */,
-				B44504A52040AA01001BF695 /* LaunchScreen.storyboard */,
-				B44504A82040AA01001BF695 /* Info.plist */,
 			);
 			path = RoutingApp;
 			sourceTree = "<group>";
