@@ -205,6 +205,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i9L-iC-HPK"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="tF7-JW-Dfl" id="gph-yq-Udj"/>
+                        <outlet property="tableView" destination="khQ-BX-mxz" id="72H-nx-zLQ"/>
+                        <outlet property="totalTimeLabel" destination="kaL-fH-aBE" id="3iM-gG-3Vj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugp-d8-DxP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
