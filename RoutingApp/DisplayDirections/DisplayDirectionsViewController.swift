@@ -20,6 +20,10 @@ class DisplayDirectionsViewController: UIViewController {
     // MARK: - Constants
     
     // MARK: - Variables
+    var totalTime = 0
+    var totalTimeToBeDisplayed: String {
+        return String(totalTime)
+    }
     
     // MARK: - ViewController LifeCycle
     override func viewDidLoad() {

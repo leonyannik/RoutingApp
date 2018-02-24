@@ -54,7 +54,7 @@ class EnterLocationViewController: UIViewController {
         for button in enterButtonsGroup {
             button.layer.cornerRadius = 9
             button.backgroundColor = .black
-            button.setTitleColor(.darkGray, for: .normal)
+            button.setTitleColor(.white, for: .normal)
         }
         makeTheRouteButton.layer.cornerRadius = 9
         makeTheRouteButton.backgroundColor = .orange
