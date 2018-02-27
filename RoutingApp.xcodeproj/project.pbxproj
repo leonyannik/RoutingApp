@@ -15,6 +15,9 @@
 		B44504B22040D4C8001BF695 /* EnterLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44504B12040D4C8001BF695 /* EnterLocationViewController.swift */; };
 		B44504B52040D4F3001BF695 /* DisplayDirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44504B42040D4F3001BF695 /* DisplayDirectionsViewController.swift */; };
 		B44504B72040D521001BF695 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44504B62040D521001BF695 /* HideKeyboard.swift */; };
+		B47442A32045BE370087831B /* SelectFromPossibleLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47442A22045BE370087831B /* SelectFromPossibleLocationsViewController.swift */; };
+		B47442A52045BF100087831B /* PossibleResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47442A42045BF100087831B /* PossibleResultTableViewCell.swift */; };
+		B4FB70692043263F00A41A81 /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FB70682043263F00A41A81 /* DropDownTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		B44504B12040D4C8001BF695 /* EnterLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterLocationViewController.swift; sourceTree = "<group>"; };
 		B44504B42040D4F3001BF695 /* DisplayDirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDirectionsViewController.swift; sourceTree = "<group>"; };
 		B44504B62040D521001BF695 /* HideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		B47442A22045BE370087831B /* SelectFromPossibleLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFromPossibleLocationsViewController.swift; sourceTree = "<group>"; };
+		B47442A42045BF100087831B /* PossibleResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleResultTableViewCell.swift; sourceTree = "<group>"; };
+		B4FB70682043263F00A41A81 /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,8 @@
 		B44504B32040D4CC001BF695 /* EnterLocation */ = {
 			isa = PBXGroup;
 			children = (
+				B47442A22045BE370087831B /* SelectFromPossibleLocationsViewController.swift */,
+				B47442A42045BF100087831B /* PossibleResultTableViewCell.swift */,
 				B44504B12040D4C8001BF695 /* EnterLocationViewController.swift */,
 			);
 			path = EnterLocation;
@@ -92,6 +100,7 @@
 		B44504B82040D525001BF695 /* AuxiliaryFunctions */ = {
 			isa = PBXGroup;
 			children = (
+				B4FB70682043263F00A41A81 /* DropDownTextField.swift */,
 				B44504B62040D521001BF695 /* HideKeyboard.swift */,
 			);
 			path = AuxiliaryFunctions;
@@ -169,9 +178,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4FB70692043263F00A41A81 /* DropDownTextField.swift in Sources */,
 				B44504B72040D521001BF695 /* HideKeyboard.swift in Sources */,
+				B47442A32045BE370087831B /* SelectFromPossibleLocationsViewController.swift in Sources */,
 				B445049D2040AA01001BF695 /* AppDelegate.swift in Sources */,
 				B44504B52040D4F3001BF695 /* DisplayDirectionsViewController.swift in Sources */,
+				B47442A52045BF100087831B /* PossibleResultTableViewCell.swift in Sources */,
 				B44504B22040D4C8001BF695 /* EnterLocationViewController.swift in Sources */,
 				B44504AF2040D486001BF695 /* DirectionTableViewCell.swift in Sources */,
 			);
