@@ -28,6 +28,10 @@ class EnterLocationViewController: UIViewController {
     var myLocationTuples = [(locationText: String, mapItem: MKMapItem)]()
     var locationTuples = [(locationField: UITextField, mapItem: MKMapItem?)]()
     var listOfPossibleAddresses = [String]()
+    var listOfPlaceMarks = [CLPlacemark]()
+    var mapKitToPassStart = MKMapItem()
+    var mapKitToPassOne = MKMapItem()
+    var mapKitToPassTwo = MKMapItem()
     var middleButtonTapped = true
     // MARK: - ViewController LifeCycle
     override func viewDidLoad() {
@@ -49,7 +53,8 @@ class EnterLocationViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toShowDirectionsSegue" {
-            
+            let controller = segue.destination as! DisplayDirectionsViewController
+            controller.mapKitItems = [mapKitToPassStart, mapKitToPassOne, mapKitToPassTwo, mapKitToPassStart]
         }else if segue.identifier == "toShowPossibleResultsSegue" {
             let controller = segue.destination as! SelectFromPossibleLocationsViewController
             controller.listOfAddresses = listOfPossibleAddresses
@@ -60,11 +65,10 @@ class EnterLocationViewController: UIViewController {
     // MARK: - Outlet Actions
     @IBAction func makeTheRouteButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "toShowDirectionsSegue", sender: nil)
-        
-        
     }
     @IBAction func switchButtonTapped(_ sender: Any) {
-        
+        swap(&destinationFieldTwo.text, &destinationFieldOne.text)
+        swap(&mapKitToPassOne, &mapKitToPassTwo)
     }
     
     @IBAction func destinationOneEnterButtonTapped(_ sender: Any) {
@@ -73,6 +77,7 @@ class EnterLocationViewController: UIViewController {
         CLGeocoder().geocodeAddressString(destinationFieldOne.text!) { (placemarks, error) in
             self.listOfPossibleAddresses = []
             guard let placeMarks = placemarks else { return }
+            self.listOfPlaceMarks = placeMarks
             for placeMark in placeMarks {
                 self.listOfPossibleAddresses.append(self.formatAddressFromPlaceMark(placeMark: placeMark))
             }
@@ -85,6 +90,7 @@ class EnterLocationViewController: UIViewController {
         CLGeocoder().geocodeAddressString(destinationFieldTwo.text!) { (placemarks, error) in
             self.listOfPossibleAddresses = []
             guard let placeMarks = placemarks else { return }
+            self.listOfPlaceMarks = placeMarks
             for placeMark in placeMarks {
                 self.listOfPossibleAddresses.append(self.formatAddressFromPlaceMark(placeMark: placeMark))
             }
@@ -171,6 +177,7 @@ extension EnterLocationViewController: CLLocationManagerDelegate {
                 guard let placeMark = placeMarks.first else { return }
                 let MapKlitPlaceMark = MKPlacemark(placemark: placeMark)
                 self.locationTuples[0].mapItem = MKMapItem(placemark: MapKlitPlaceMark)
+                self.mapKitToPassStart = MKMapItem(placemark: MapKlitPlaceMark)
                 self.sourceField.text = self.formatAddressFromPlaceMark(placeMark: placeMark)
             }
         }
@@ -187,8 +194,18 @@ extension EnterLocationViewController: SelectCorrectAddressDelegate {
         if index < listOfPossibleAddresses.count {
             if middleButtonTapped {
                 destinationFieldOne.text = listOfPossibleAddresses[index]
+                let mapItem = MKMapItem(placemark:
+                    MKPlacemark(coordinate: listOfPlaceMarks[index].location!.coordinate,
+                                addressDictionary: listOfPlaceMarks[index].addressDictionary
+                                    as! [String:AnyObject]?))
+                mapKitToPassOne = mapItem
             }else {
                 destinationFieldTwo.text = listOfPossibleAddresses[index]
+                let mapItem = MKMapItem(placemark:
+                    MKPlacemark(coordinate: listOfPlaceMarks[index].location!.coordinate,
+                                addressDictionary: listOfPlaceMarks[index].addressDictionary
+                                    as! [String:AnyObject]?))
+                mapKitToPassTwo = mapItem
             }
         }else {
             print("Non was selected")
